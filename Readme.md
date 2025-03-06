@@ -29,12 +29,12 @@ This project showcases a flipbook of PUBG gun skins, designed to be responsive f
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/iamawmrit/book-flip-turn-3D-effect-using-turnjs.git
+   git clone https://github.com/iamawmrit/book-flip-3DEffect.git
    ```
 
 2. Navigate into the project directory:
    ```bash
-   cd book-flip-turn-3D-effect-using-turnjs
+   cd book-flip-3DEffect
    ```
 
 3. Open `index.html` in your web browser to view the flipbook.
