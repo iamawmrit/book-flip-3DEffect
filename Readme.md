@@ -44,6 +44,11 @@ This project showcases a flipbook of PUBG gun skins, designed to be responsive f
 - The flipbook displays various PUBG gun skins with images and descriptions.
 - Users can interact with the flipbook by flipping through the pages.
 
+## This is what it looks like
+![Flipbook Screenshot](screen_shots/1.png)
+![Flipbook Screenshot](screen_shots/2.png)
+![Flipbook Screenshot](screen_shots/3.png)
+
 ## Note
 
 This project is free to use!
