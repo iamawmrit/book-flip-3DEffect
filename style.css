@@ -1,95 +1,599 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Libre+Baskerville:wght@400;700&display=swap");
+
+:root {
+    --bg-1: #1b130f;
+    --bg-2: #2a1c14;
+    --paper: #f6eddc;
+    --paper-edge: #e7d9bf;
+    --paper-shadow: rgba(72, 44, 24, 0.18);
+    --ink: #1f1712;
+    --muted: #655247;
+    --accent: #d9a760;
+    --accent-soft: rgba(217, 167, 96, 0.18);
+    --cover-1: #3b2419;
+    --cover-2: #17100d;
+    --cover-line: rgba(255, 236, 204, 0.16);
+    --shadow-strong: rgba(0, 0, 0, 0.42);
+    --shadow-soft: rgba(0, 0, 0, 0.18);
+    --radius: 14px;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+}
+
+html {
+    color-scheme: dark;
 }
 
 body {
-    display: grid;
-    place-content: center;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    background: #d3e6ff;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, rgba(255, 211, 132, 0.14), transparent 24rem),
+        radial-gradient(circle at 15% 18%, rgba(255, 160, 82, 0.1), transparent 20rem),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 35%),
+        linear-gradient(145deg, #140d09, #24140d 55%, #120904);
+    color: #f7f1e7;
+    overflow-x: hidden;
+    font-family: "Libre Baskerville", serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mix-blend-mode: soft-light;
+}
+
+.scene {
+    min-height: 100vh;
+    width: min(100%, 78rem);
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+}
+
+.scene-copy {
+    width: min(100%, 34rem);
+    text-align: center;
+}
+
+.eyebrow,
+.page-label,
+.cover-kicker,
+.inside-cover__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+}
+
+.eyebrow {
+    color: rgba(255, 225, 181, 0.72);
+    margin-bottom: 0.45rem;
+}
+
+.scene-copy h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+}
+
+.scene-note {
+    width: min(100%, 28rem);
+    margin: 0 auto;
+    color: rgba(247, 241, 231, 0.76);
+    line-height: 1.7;
+    font-size: 0.9rem;
+}
+
+.book-shell {
+    width: min(100%, 66rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.book-stage {
+    position: absolute;
+    position: relative;
+    width: min(100%, 62rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.35rem 1.45rem 1.6rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 226, 186, 0.1);
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255, 212, 150, 0.08), transparent 34%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.12)),
+        rgba(14, 8, 5, 0.42);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 234, 210, 0.06),
+        0 24px 80px rgba(0, 0, 0, 0.32);
+    perspective: 2200px;
+    isolation: isolate;
+}
+
+.book-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03), transparent 12%, transparent 88%, rgba(255, 255, 255, 0.02)),
+        radial-gradient(circle at center, rgba(255, 193, 118, 0.05), transparent 44%);
+}
+
+.book-shadow {
+    position: absolute;
+    width: min(76%, 42rem);
+    height: 3.4rem;
+    bottom: 0.85rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.58), transparent 72%);
+    filter: blur(16px);
+    pointer-events: none;
+}
+
+.book-spine {
+    display: none;
+}
+
+.page-status {
+    min-height: 2.5rem;
+    padding: 0.72rem 1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 228, 191, 0.16);
+    background: rgba(255, 248, 236, 0.06);
+    color: rgba(255, 236, 212, 0.86);
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .flipbook {
-    width: 80vw; /* Use viewport width for responsiveness */
-    height: 70vh; /* Adjusted height for better aspect ratio */
-    max-width: 1000px; /* Maximum width to prevent excessive scaling */
-    max-height: 600px; /* Maximum height to prevent excessive scaling */
+    visibility: hidden;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 26px 24px rgba(0, 0, 0, 0.22));
 }
 
+.flipbook.is-ready {
+    visibility: visible;
+}
+
+.flipbook,
+.flipbook * {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.flipbook .page,
 .flipbook .hard {
-    background: #2b78c0 !important;
-    color: #fff;
-    font-weight: bold;
-    border: none;
-}
-
-.flipbook .hard small {
-    font-style: italic;
-    font-weight: lighter;
-    opacity: 0.7;
-    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
 }
 
 .flipbook .page {
-    background: white;
+    color: var(--ink);
+    border: 1px solid rgba(93, 70, 50, 0.14);
+    background:
+        linear-gradient(90deg, rgba(164, 130, 88, 0.08), transparent 14% 86%, rgba(164, 130, 88, 0.12)),
+        linear-gradient(180deg, #fbf5ea, var(--paper));
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+        inset 0 0 32px rgba(255, 255, 255, 0.24),
+        inset 0 -18px 28px rgba(125, 89, 55, 0.06);
+}
+
+.flipbook .page::before,
+.flipbook .page::after,
+.flipbook .hard::before,
+.flipbook .hard::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.flipbook .page::before {
+    opacity: 0.55;
+    background:
+        linear-gradient(90deg, rgba(95, 67, 42, 0.16), transparent 10% 88%, rgba(95, 67, 42, 0.08)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 22%);
+}
+
+.flipbook .page::after {
+    opacity: 0.18;
+    mix-blend-mode: multiply;
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.7), transparent 10%),
+        radial-gradient(circle at 80% 70%, rgba(154, 123, 83, 0.26), transparent 16%);
+    background-size: 12px 12px, 16px 16px;
+}
+
+.flipbook .odd {
+    background:
+        linear-gradient(90deg, rgba(79, 57, 40, 0.18), rgba(255, 255, 255, 0.05) 12%, transparent 24%),
+        linear-gradient(180deg, #fcf7ec, var(--paper));
+}
+
+.flipbook .even {
+    background:
+        linear-gradient(270deg, rgba(79, 57, 40, 0.18), rgba(255, 255, 255, 0.05) 12%, transparent 24%),
+        linear-gradient(180deg, #fcf7ec, var(--paper));
+}
+
+.flipbook .hard {
+    color: #f8efe4;
+    border: none;
+    background:
+        radial-gradient(circle at top, rgba(255, 223, 171, 0.12), transparent 28%),
+        linear-gradient(145deg, var(--cover-1), var(--cover-2));
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 233, 206, 0.08),
+        inset 0 0 32px rgba(0, 0, 0, 0.24);
+}
+
+.flipbook .hard::before {
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06), transparent 20%, transparent 80%, rgba(0, 0, 0, 0.22)),
+        repeating-linear-gradient(135deg,
+            transparent 0 10px,
+            rgba(255, 255, 255, 0.015) 10px 20px);
+}
+
+.flipbook .hard::after {
+    inset: 0.75rem;
+    border: 1px solid var(--cover-line);
+    border-radius: calc(var(--radius) - 2px);
+}
+
+.cover,
+.page {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.cover-art,
+.inside-cover,
+.page-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.cover-art {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(1.15rem, 2.4vw, 1.9rem);
+    background:
+        radial-gradient(circle at top right, rgba(217, 167, 96, 0.2), transparent 26%),
+        linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.12));
+}
+
+.cover-art h2,
+.inside-cover h2,
+.page-content h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    line-height: 0.98;
+}
+
+.cover-art h2 {
+    font-size: clamp(1.95rem, 3.2vw, 3.45rem);
+    max-width: 12ch;
+}
+
+.cover-copy {
+    width: min(100%, 18rem);
+    color: rgba(250, 238, 224, 0.8);
+    line-height: 1.7;
+    font-size: 0.88rem;
+}
+
+.cover-signature {
+    color: rgba(255, 230, 194, 0.72);
+    letter-spacing: 0.16em;
+}
+
+.cover-art--back {
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.cover--inside,
+.cover--inside-back {
+    color: var(--ink);
+    background:
+        linear-gradient(180deg, #efe1c9, #dfcbab) !important;
+}
+
+.inside-cover {
+    padding: clamp(1.1rem, 2.4vw, 1.75rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.11);
+    gap: 0.9rem;
+    color: #2b1d16;
 }
 
-.page img {
-    width: 70%;
-    object-fit: cover;
+.inside-cover h2 {
+    font-size: clamp(1.8rem, 2.9vw, 2.8rem);
+}
+
+.inside-cover p {
+    max-width: 22rem;
+    line-height: 1.8;
+    font-size: 0.88rem;
+    color: rgba(43, 29, 22, 0.82);
+}
+
+.page-content {
+    padding: clamp(1rem, 2vw, 1.6rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.85rem;
+}
+
+.page-label {
+    color: rgba(91, 68, 48, 0.82);
+}
+
+.page-content h3 {
+    font-size: clamp(1.6rem, 2.35vw, 2.45rem);
+    max-width: 11ch;
+}
+
+.page-content p,
+.page-content li,
+blockquote {
+    font-size: 0.88rem;
+    line-height: 1.68;
+    color: var(--muted);
+}
+
+.feature-list {
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.45rem;
+}
+
+.page-content--media {
+    justify-content: space-between;
+}
+
+.media-frame {
+    flex: 1;
+    min-height: 0;
+    padding: clamp(0.65rem, 1.2vw, 0.9rem);
+    border-radius: var(--radius);
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.66), rgba(228, 209, 181, 0.55)),
+        var(--accent-soft);
+    box-shadow:
+        inset 0 0 0 1px rgba(130, 93, 62, 0.08),
+        0 18px 24px rgba(72, 45, 27, 0.08);
+}
+
+.media-frame img {
+    width: 82%;
+    height: 82%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
     margin: auto;
+    -webkit-user-drag: none;
+    filter: drop-shadow(0 18px 18px rgba(32, 22, 15, 0.16));
 }
 
-.flipbook .page small {
-    font-size: 14px;
-    margin-bottom: 10px;
+.weapon-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
 }
 
-/* Media queries for extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+blockquote {
+    margin-top: 0.4rem;
+    padding-left: 1rem;
+    border-left: 2px solid rgba(118, 84, 54, 0.34);
+    font-style: italic;
+}
+
+.book-toolbar {
+    width: min(100%, 42rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.book-controls {
+    display: flex;
+    gap: 0.9rem;
+}
+
+.book-control {
+    min-width: 8.2rem;
+    min-height: 2.9rem;
+    padding: 0.78rem 1.05rem;
+    border: 1px solid rgba(255, 225, 188, 0.18);
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 248, 236, 0.1), rgba(255, 248, 236, 0.04));
+    color: #f7efe4;
+    font: inherit;
+    font-size: 0.76rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+        transform 180ms ease,
+        background-color 180ms ease,
+        border-color 180ms ease;
+    backdrop-filter: blur(8px);
+}
+
+.book-control:hover {
+    background: linear-gradient(180deg, rgba(255, 248, 236, 0.16), rgba(255, 248, 236, 0.08));
+    border-color: rgba(255, 225, 188, 0.36);
+    transform: translateY(-2px);
+}
+
+.book-control:focus-visible {
+    outline: 2px solid rgba(236, 184, 110, 0.95);
+    outline-offset: 3px;
+}
+
+.interaction-hint {
+    color: rgba(247, 241, 231, 0.62);
+    text-align: center;
+    font-size: 0.78rem;
+}
+
+.scene.is-turning .flipbook {
+    filter: drop-shadow(0 36px 42px rgba(0, 0, 0, 0.36));
+}
+
+.flipbook .is-active {
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.32),
+        inset 0 0 36px rgba(255, 255, 255, 0.24),
+        0 16px 28px var(--paper-shadow);
+}
+
+.flipbook .is-before::before {
+    background:
+        linear-gradient(90deg, rgba(70, 48, 31, 0.22), transparent 12% 88%, rgba(255, 255, 255, 0.06)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent 22%);
+}
+
+.flipbook .is-after::before {
+    background:
+        linear-gradient(270deg, rgba(70, 48, 31, 0.22), transparent 12% 88%, rgba(255, 255, 255, 0.06)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent 22%);
+}
+
+@media (max-width: 899px) {
+    .scene {
+        padding-top: 1rem;
+    }
+
+    .scene-copy {
+        width: min(100%, 30rem);
+    }
+
+    .scene-note {
+        width: min(100%, 24rem);
+    }
+
+    .book-stage {
+        padding: 1rem 0.9rem 1.25rem;
+    }
+
+    .book-spine {
+        display: none;
+    }
+
+    .book-shadow {
+        width: min(82vw, 24rem);
+        bottom: 0.65rem;
+    }
+
+    .page-content h3,
+    .inside-cover h2 {
+        max-width: none;
+    }
+
+    .page-content p,
+    .page-content li,
+    blockquote,
+    .inside-cover p,
+    .cover-copy {
+        font-size: 0.82rem;
+        line-height: 1.7;
+    }
+
+    .book-toolbar {
+        width: min(100%, 28rem);
+    }
+
+    .book-control {
+        min-width: 7.6rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .scene {
+        gap: 0.75rem;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+
+    .page-content,
+    .inside-cover,
+    .cover-art {
+        padding: 0.9rem;
+    }
+
+    .scene-copy h1 {
+        font-size: clamp(2.1rem, 10vw, 3rem);
+    }
+
+    .scene-note {
+        font-size: 0.82rem;
+    }
+
+    .book-controls {
+        gap: 0.65rem;
+    }
+
+    .book-control {
+        min-height: 2.8rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+    }
+
+    .page-status {
+        min-height: 2.3rem;
+        padding: 0.6rem 0.85rem;
+        font-size: 0.68rem;
+    }
+
+    .interaction-hint {
+        max-width: 20rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .book-control,
     .flipbook {
-        width: 90vw;
-        height: 30vh; /* Reduced height for better aspect ratio */
-    }
-
-    .page img {
-        width: 80%;
-    }
-}
-
-/* Media queries for small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) and (max-width: 768px) {
-    .flipbook {
-        width: 85vw;
-        height: 55vh; /* Reduced height for better aspect ratio */
-    }
-
-    .page img {
-        width: 75%;
-    }
-}
-
-/* Media queries for medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) and (max-width: 992px) {
-    .flipbook {
-        width: 90vw;
-        height: 60vh; /* Adjusted height for better aspect ratio */
-    }
-
-    .page img {
-        width: 70%;
+        transition: none;
     }
 }

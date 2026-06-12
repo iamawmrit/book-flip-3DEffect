@@ -4,41 +4,288 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="A more realistic 3D flipbook showcasing PUBG gun skins with richer paper depth and page-turn motion." />
   <link rel="stylesheet" href="style.css" />
-  <title>Pubg Gun Skins</title>
+  <title>Awmrit Arsenal | 3D Flipbook</title>
 </head>
 
 <body>
-  <div class="flipbook">
-    <div class="hard">My Pubg Gun Skins <small>~ Awmrit</small></div>
-    <div class="hard"></div>
-    <div>
-      <small>Let's Look At Some Amazing PUBG Mobile Gun Skins 🎮</small><br>
-      <small>Show Off Your Unique Skins in Matches!</small><br>
-      <small>Unlock Exclusive Skins Through Events!</small><br>
-      <small>Join the Community and Share Your Collection!</small>
-    </div>
+  <main class="scene">
+    <header class="scene-copy">
+      <p class="eyebrow">Collector's Edition</p>
+      <h1>PUBG Gun Skins</h1>
+      <p class="scene-note">
+        A premium interactive showcase for rare finishes, rebuilt to feel clean,
+        balanced, and tactile.
+      </p>
+    </header>
 
-    <div>
-      <img src="images/img-1.png" alt="" />
-      <small> Glacier M4 16 </small>
-    </div>
-    <div>
-      <img src="images/img-2.jpg" alt="" />
-      <small> Glacier ump </small>
-    </div>
-    <div>
-      <img src="images/img-3.png" alt="" />
-      <small> Awm </small>
-    </div>
-    <div class="hard"></div>
-    <div class="hard">Thank You <small>~ Awmrit</small></div>
-  </div>
+    <section class="book-shell" aria-label="PUBG gun skins flipbook">
+      <div class="book-stage">
+        <div class="book-shadow" aria-hidden="true"></div>
+        <div class="book-spine" aria-hidden="true"></div>
+
+        <div class="flipbook" id="flipbook">
+          <section class="hard cover cover--front">
+            <div class="cover-art">
+              <p class="cover-kicker">Collector's Vault</p>
+              <h2>PUBG Gun Skins</h2>
+              <p class="cover-copy">
+                Frosted steel, tournament flex, and rare finishes gathered into one
+                tactile showcase.
+              </p>
+              <span class="cover-signature">~ Awmrit</span>
+            </div>
+          </section>
+
+          <section class="page page--intro">
+            <div class="page-content">
+              <p class="page-label">Introduction</p>
+              <h3>A flipbook that feels more like printed material than a flat slider.</h3>
+              <p>
+                The update focuses on believable depth: a heavier spine, softer
+                paper tint, layered shadows, and page edges that react more clearly
+                as spreads turn.
+              </p>
+              <ul class="feature-list">
+                <li>Deeper scene lighting and desk shadows</li>
+                <li>Editorial typography and warmer paper tones</li>
+                <li>Responsive double-page and single-page layouts</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="page page--weapon">
+            <div class="page-content page-content--media">
+              <div class="media-frame">
+                <img src="images/img-1.png" alt="Glacier M416 PUBG skin artwork" />
+              </div>
+              <div class="weapon-copy">
+                <p class="page-label">Loadout 01</p>
+                <h3>Glacier M416</h3>
+                <p>
+                  A cold crystalline finish with one of the most recognizable
+                  upgraded looks in the game.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="page page--weapon">
+            <div class="page-content page-content--media">
+              <div class="media-frame">
+                <img src="images/img-2.jpg" alt="Glacier UMP PUBG skin artwork" />
+              </div>
+              <div class="weapon-copy">
+                <p class="page-label">Loadout 02</p>
+                <h3>Glacier UMP</h3>
+                <p>
+                  Compact, glossy, and icy. The blue finish reads especially well
+                  against the warmer paper stock.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="page page--weapon">
+            <div class="page-content page-content--media">
+              <div class="media-frame">
+                <img src="images/img-3.png" alt="AWM PUBG skin artwork" />
+              </div>
+              <div class="weapon-copy">
+                <p class="page-label">Loadout 03</p>
+                <h3>AWM</h3>
+                <p>
+                  A dramatic long-range icon with enough visual weight to anchor the
+                  final featured spread.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="page page--outro">
+            <div class="page-content">
+              <p class="page-label">Closing Note</p>
+              <h3>Turn the last sheet and the object still feels complete.</h3>
+              <p>
+                That final impression comes from the same details that help the
+                middle spreads: consistent edge shading, sturdy covers, and a
+                little extra time in the page animation.
+              </p>
+              <blockquote>
+                "A strong 3D book effect is mostly light, paper, and timing."
+              </blockquote>
+            </div>
+          </section>
+
+          <section class="hard cover cover--inside cover--inside-back">
+            <div class="inside-cover">
+              <p class="inside-cover__eyebrow">Archive</p>
+              <h2>Thank You</h2>
+              <p>
+                Use the buttons, drag the corners, or tap the arrow keys to keep
+                moving through the book.
+              </p>
+            </div>
+          </section>
+
+          <section class="hard cover cover--back">
+            <div class="cover-art cover-art--back">
+              <p class="cover-kicker">Awmrit Collection</p>
+              <h2>End Of Volume</h2>
+              <p class="cover-copy">Designed to read like a real object, not just a widget.</p>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="book-toolbar">
+        <div class="page-status" id="page-status" aria-live="polite">Front cover</div>
+        <div class="book-controls" aria-label="Flipbook controls">
+          <button class="book-control" id="prev-page" type="button">Previous</button>
+          <button class="book-control" id="next-page" type="button">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <p class="interaction-hint">Drag a page corner or use the left and right arrow keys.</p>
+  </main>
 
   <script src="jquery.js"></script>
   <script src="turn.js"></script>
   <script>
-    $(".flipbook").turn();
+    const $flipbook = $("#flipbook");
+    const pageStatus = document.getElementById("page-status");
+    const prevButton = document.getElementById("prev-page");
+    const nextButton = document.getElementById("next-page");
+    const scene = document.querySelector(".scene");
+    const releaseEventName = "ontouchstart" in window ? "touchend" : "mouseup";
+
+    function getDisplayMode() {
+      return window.innerWidth < 900 ? "single" : "double";
+    }
+
+    function getBookSize() {
+      const singlePage = getDisplayMode() === "single";
+      const maxWidth = Math.min(window.innerWidth * (singlePage ? 0.78 : 0.7), singlePage ? 500 : 960);
+      const aspectRatio = singlePage ? 0.74 : 1.6;
+      let width = Math.max(300, Math.round(maxWidth));
+      let height = Math.round(width / aspectRatio);
+      const maxHeight = Math.round(window.innerHeight * (singlePage ? 0.64 : 0.62));
+
+      if (height > maxHeight) {
+        height = maxHeight;
+        width = Math.round(height * aspectRatio);
+      }
+
+      return { width, height };
+    }
+
+    function updateStatus(page) {
+      const totalPages = $flipbook.turn("pages");
+      const currentPage = page || $flipbook.turn("page");
+
+      if (currentPage === 1) {
+        pageStatus.textContent = "Front cover";
+      } else if (currentPage === totalPages) {
+        pageStatus.textContent = "Back cover";
+      } else {
+        pageStatus.textContent = "Page " + currentPage + " of " + totalPages;
+      }
+
+      const visiblePages = $flipbook.turn("view", currentPage);
+      const pageElements = $flipbook.children();
+
+      pageElements.removeClass("is-active is-before is-after");
+
+      pageElements.each(function (index) {
+        const pageNumber = index + 1;
+
+        if (visiblePages.indexOf(pageNumber) !== -1) {
+          $(this).addClass("is-active");
+        } else if (pageNumber < visiblePages[0]) {
+          $(this).addClass("is-before");
+        } else {
+          $(this).addClass("is-after");
+        }
+      });
+    }
+
+    function applyBookSize() {
+      const size = getBookSize();
+
+      if ($flipbook.data("turn")) {
+        const currentPage = $flipbook.turn("page");
+        $flipbook.turn("display", getDisplayMode());
+        $flipbook.turn("size", size.width, size.height);
+        $flipbook.turn("page", currentPage);
+        updateStatus(currentPage);
+      }
+    }
+
+    function forceReleaseDrag() {
+      if ($flipbook.data("mouseAction")) {
+        $(document).triggerHandler(releaseEventName);
+      }
+    }
+
+    $flipbook.turn({
+      width: getBookSize().width,
+      height: getBookSize().height,
+      display: getDisplayMode(),
+      autoCenter: true,
+      acceleration: true,
+      elevation: 80,
+      gradients: true,
+      duration: 1100,
+      when: {
+        turning: function (event, page) {
+          scene.classList.add("is-turning");
+          updateStatus(page);
+        },
+        turned: function (event, page) {
+          scene.classList.remove("is-turning");
+          updateStatus(page);
+        },
+        start: function () {
+          scene.classList.add("is-turning");
+        },
+        end: function () {
+          scene.classList.remove("is-turning");
+        }
+      }
+    });
+
+    $flipbook.addClass("is-ready");
+    updateStatus(1);
+
+    $flipbook.find("img").attr("draggable", "false");
+    $flipbook.on("dragstart", "img", function (event) {
+      event.preventDefault();
+    });
+
+    prevButton.addEventListener("click", function () {
+      $flipbook.turn("previous");
+    });
+
+    nextButton.addEventListener("click", function () {
+      $flipbook.turn("next");
+    });
+
+    window.addEventListener("resize", applyBookSize);
+    window.addEventListener("blur", forceReleaseDrag);
+    document.addEventListener("mouseleave", forceReleaseDrag);
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") {
+        $flipbook.turn("previous");
+      }
+
+      if (event.key === "ArrowRight") {
+        $flipbook.turn("next");
+      }
+    });
   </script>
 </body>
 
